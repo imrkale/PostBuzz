@@ -12,7 +12,9 @@ export default function Login() {
 
   const [error, setError] = useState('');
   const isInvalid = password === '' || emailAddress === '';
+
   const handleLogin = async (event) => {
+    console.log("HIII")
     event.preventDefault();
     try {
       await firebase.auth().signInWithEmailAndPassword(emailAddress,password);
@@ -26,7 +28,7 @@ export default function Login() {
 
   useEffect(() => {
     document.title = 'Login - Postbuzz';
-    if(window.localStorage.getItem('name'))
+    if(window.localStorage.getItem('authUser'))
     {
       history.push(ROUTES.DASHBOARD)
     }

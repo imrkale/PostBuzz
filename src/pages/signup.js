@@ -25,7 +25,7 @@ function SignUp() {
             const createdUserResult = await firebase
               .auth()
               .createUserWithEmailAndPassword(emailAddress, password);
-            window.localStorage.setItem('name',username);
+
             console.log(createdUserResult)
             // authentication
             // -> emailAddress & password & username (displayName)
