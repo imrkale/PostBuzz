@@ -1,16 +1,15 @@
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import {lazy,Suspense,useContext} from 'react'
 import * as ROUTES from './constants/routes';
-import FirebaseContext from './context/firebase';
 import useAuthListener from './hooks/use-auth-listener'
 import UserContext from './context/user'
+
 
 const Login=lazy(()=>import('./pages/login'))
 const SignUp=lazy(()=>import('./pages/signup'))
 const NotFound=lazy(()=>import('./pages/not-found'))
 const Dashboard=lazy(()=>import('./pages/dashboard'))
 function App() {
-  const firebase  = useContext(FirebaseContext);
   const user=useAuthListener();
   return (
     <UserContext.Provider value={{user}}>

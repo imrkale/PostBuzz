@@ -10,10 +10,10 @@ export default function Dashboard(){
 
     return(
         <div className="bg-gray-background">
-            <Header />
+            <Header/>
             <div className="grid">
-                <Timeline />
-                <SideBar />
+                <Timeline/>
+                <SideBar/>
             </div>
       </div>
     );
