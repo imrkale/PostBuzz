@@ -17,7 +17,9 @@ export default function Login() {
     console.log("HIII")
     event.preventDefault();
     try {
-      await firebase.auth().signInWithEmailAndPassword(emailAddress,password);
+      await firebase.auth().signInWithEmailAndPassword("kale44772@gmail.com","123456");
+      setEmailAddress('');
+      setPassword('');
       history.push(ROUTES.DASHBOARD);
     } catch (error) {
       setEmailAddress('');
@@ -47,7 +49,7 @@ export default function Login() {
 
           {error && <p className="mb-4 text-xs text-red-700">{error}</p>}
 
-          <form onSubmit={handleLogin} method="POST">
+          <form onSubmit={handleLogin}>
             <input
               aria-label="Enter your email address"
               type="text"

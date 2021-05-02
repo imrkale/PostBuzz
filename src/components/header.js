@@ -8,7 +8,7 @@ export default function Header(){
     const {firebase}=useContext(FirebaseContext);
     const history = useHistory();
     const {user:loggedInUser} = useContext(UserContext);
-    console.log(loggedInUser?.user?.username)
+    console.log(loggedInUser?.user?.email)
     return (
         <header className="h-16 bg-white border-b border-gray-primary mb-8">
         <div className="container mx-auto max-w-screen-lg h-full">
@@ -21,7 +21,7 @@ export default function Header(){
               </h1>
             </div>
             <div className="text-gray-700 text-center flex items-center align-items">
-              {loggedInUser ? (
+              {window.localStorage.getItem('authUser') ? (
                 <>
                   <Link to={ROUTES.DASHBOARD} aria-label="Dashboard">
                     <svg
@@ -89,7 +89,7 @@ export default function Header(){
                   <Link to={ROUTES.LOGIN}>
                     <button
                       type="button"
-                      className="bg-blue-medium font-bold text-sm rounded text-white w-20 h-8"
+                      className="bg-blue-500 font-bold text-sm rounded text-white w-20 h-8"
                     >
                       Log In
                     </button>
@@ -97,7 +97,7 @@ export default function Header(){
                   <Link to={ROUTES.SIGN_UP}>
                     <button
                       type="button"
-                      className="font-bold text-sm rounded text-blue-medium w-20 h-8"
+                      className="font-bold text-sm rounded text-blue-500 w-20 h-8"
                     >
                       Sign Up
                     </button>
