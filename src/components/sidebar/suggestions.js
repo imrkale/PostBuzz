@@ -1,11 +1,11 @@
 import React from 'react'
 
-function suggestions() {
+function Suggestions({userId,following,loggedInUserDocId}) {
     return (
         <div>
-            
+            <h1>{userId}</h1>
         </div>
     )
 }
 
-export default suggestions
+export default Suggestions

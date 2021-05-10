@@ -1,7 +1,7 @@
 import useUser from '../../hooks/use-user'
 import {useContext} from 'react'
 import UserContext from '../../context/user'
-import suggestions from './suggestions'
+import Suggestions from './suggestions'
 import Skeleton from 'react-loading-skeleton';
 import User from './user'
 
@@ -13,13 +13,13 @@ export default  function SideBar(){
     {
         return  (
         
-            <div className="p-4">
+            <div className="p-4 ml-auto">
               <User username={Userr.username} fullName={Userr.fullName} />
-              <suggestions userId={Userr.userId} following={Userr.following} loggedInUserDocId={Userr.docId} />
+              <Suggestions userId={Userr.userId} following={Userr.following} loggedInUserDocId={Userr.docId} />
             </div>
           );
     }
     else
-        return <Skeleton count={1} height={61} />
+        return <Skeleton count={5} height={61} />
     
 }
