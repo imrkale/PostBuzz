@@ -18,3 +18,21 @@ export async function getUserByUserId(userId) {
 
   return user;
 }
+export async function getSuggestedProfiles(userId, following) {
+  let query = firebase.firestore().collection('users');
+
+  if (following.length > 0) {
+    query = query.where('userId', 'not-in', [...following, userId]);
+
+  } else {
+    query = query.where('userId', '!=', userId);
+  }
+  const result = await query.limit(10).get();
+  const profiles = result.docs.map((user) => ({
+    ...user.data(),
+    docId: user.id
+  }));
+  console.log(profiles)
+
+  return profiles;
+}
