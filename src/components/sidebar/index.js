@@ -8,6 +8,7 @@ import User from './user'
 export default  function SideBar(){
     const {user}=useContext(UserContext)
     const activeUser = useUser(user?.user?.uid);
+    console.log(activeUser.username)
     const Userr= activeUser.user;
     if(Userr)
     {
