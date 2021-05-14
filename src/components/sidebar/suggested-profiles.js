@@ -10,22 +10,23 @@ export default function SuggestedProfile({
   userId,
   loggedInUserDocId
 }) {
-//   const [followed, setFollowed] = useState(false);
+  const [followed, setFollowed] = useState(false);
 //   const { setActiveUser } = useContext(LoggedInUserContext);
 
-//   async function handleFollowUser() {
-//     setFollowed(true);
-//     await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
-//     await updateFollowedUserFollowers(profileDocId, userId, false);
-//     const [user] = await getUserByUserId(userId);
-//     setActiveUser(user);
-//   }
-
+  async function handleFollowUser() {
+    setFollowed(true);
+    // await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
+    // await updateFollowedUserFollowers(profileDocId, userId, false);
+    // const [user] = await getUserByUserId(userId);
+    // setActiveUser(user);
+  }
+ 
   return (
+    !followed?
     <div className="flex flex-row items-center align-items justify-between">
       <div className="flex items-center justify-between">
         <img
-          className="rounded-full w-8 flex mr-3"
+          className="rounded-full w-8 flex mr-3 h-8"
           src="https://www.thestatesman.com/wp-content/uploads/2020/09/EicwoqZUYAAxDUE.jpeg"
           alt=""
           onError={(e) => {
@@ -39,11 +40,11 @@ export default function SuggestedProfile({
       <button
         className="text-xs font-bold text-blue-medium"
         type="button"
-        // onClick={handleFollowUser}
+        onClick={handleFollowUser}
       >
         Follow
       </button>
-    </div>
+    </div>:""
   )
 }
 

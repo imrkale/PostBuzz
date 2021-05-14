@@ -69,20 +69,20 @@ export default function Header(){
                       />
                     </svg>
                   </button>
-                  {/* {user && (
+                  {loggedInUser && (
                     <div className="flex items-center cursor-pointer">
-                      <Link to={`/p/${user?.username}`}>
-                        <img
-                          className="rounded-full h-8 w-8 flex"
-                          src={`/images/avatars/${user?.username}.jpg`}
-                          alt={`${user?.username} profile`}
+                      <Link to={`/p/${loggedInUser?.user?.username}`}>
+                      <img
+                          className="rounded-full w-8 flex mr-3 h-8"
+                          src="https://www.thestatesman.com/wp-content/uploads/2020/09/EicwoqZUYAAxDUE.jpeg"
+                          alt=""
                           onError={(e) => {
-                            e.target.src = DEFAULT_IMAGE_PATH;
+                            e.target.src = `/images/avatars/default.png`;
                           }}
                         />
                       </Link>
                     </div>
-                  )} */}
+                  )}
                 </>
               ) : (
                 <>

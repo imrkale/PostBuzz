@@ -46,8 +46,8 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
   ) : null;
 }
 
-// Suggestions.propTypes = {
-//   userId: PropTypes.string,
-//   following: PropTypes.array,
-//   loggedInUserDocId: PropTypes.string
-// };
+Suggestions.propTypes = {
+  userId: PropTypes.string,
+  following: PropTypes.array,
+  loggedInUserDocId: PropTypes.string
+};

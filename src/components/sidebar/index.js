@@ -20,6 +20,16 @@ export default  function SideBar(){
           );
     }
     else
+    {
+      if(JSON.parse(localStorage.getItem('authUser')))
+      {
         return <Skeleton count={5} height={61} />
+      }
+      else{
+        return <div>Login To Get Started</div>
+      }
+    }
+
+       
     
 }
