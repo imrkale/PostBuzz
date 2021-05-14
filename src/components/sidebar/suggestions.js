@@ -24,7 +24,7 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
   // go ahead and render (wait on the profiles as in 'skeleton')
 
   return !profiles ? (
-    <Skeleton count={1} height={150} className="mt-5" />
+    <Skeleton count={3} height={80} className="mt-5" />
   ) : profiles.length > 0 ? (
     <div className="rounded flex flex-col">
       <div className="text-sm flex items-center align-items justify-between mb-2">

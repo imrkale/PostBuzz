@@ -17,7 +17,7 @@ export default function Login() {
     console.log("HIII")
     event.preventDefault();
     try {
-      await firebase.auth().signInWithEmailAndPassword("kale44772@gmail.com","123456");
+      await firebase.auth().signInWithEmailAndPassword("kale44772@gmail.com","raj126");
       setEmailAddress('');
       setPassword('');
       history.push(ROUTES.DASHBOARD);

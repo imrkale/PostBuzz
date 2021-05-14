@@ -42,7 +42,7 @@ function SignUp() {
                 username: username.toLowerCase(),
                 fullName,
                 emailAddress: emailAddress.toLowerCase(),
-                following: ['2'],
+                following: [],
                 followers: [],
                 dateCreated: Date.now()
               });

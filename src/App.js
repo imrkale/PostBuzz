@@ -16,9 +16,9 @@ function App() {
       <Router>
         <Suspense fallback={<h1>Loading Data</h1>}>
           <Switch>
-              <Route path={ROUTES.LOGIN} component={Login}/>
-              <Route path={ROUTES.SIGN_UP} component={SignUp}/>
-              <Route path={ROUTES.DASHBOARD} component={Dashboard}/>
+              <Route path={ROUTES.LOGIN} exact component={Login}/>
+              <Route path={ROUTES.SIGN_UP} exact component={SignUp}/>
+              <Route path={ROUTES.DASHBOARD} exact component={Dashboard}/>
               <Route component={NotFound}/>
           </Switch>
         </Suspense>

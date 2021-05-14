@@ -44,8 +44,9 @@ export default function Header(){
                     type="button"
                     title="Sign Out"
                     onClick={() => {
-                      firebase.auth().signOut();
                       history.push(ROUTES.LOGIN);
+                      firebase.auth().signOut();
+                     
                     }}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter') {
