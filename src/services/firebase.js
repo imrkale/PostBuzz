@@ -18,6 +18,30 @@ export async function getUserByUserId(userId) {
 
   return user;
 }
+
+export async function  updateLoggedInUserFollowing(loggedInUserDocId, profileId, isfollowing) 
+{
+  return await firebase.firestore().collection('users').doc(loggedInUserDocId)
+  .update({following: isfollowing?FieldValue.arrayRemove(profileId):FieldValue.arrayUnion(profileId)})
+
+}
+export async function updateFollowedUserFollowers(
+  profileDocId, // the user that karl requests to follow//
+  loggedInUserDocId, //currently logged in user document id (karl's profile)
+  isFollowingProfile // true/false (am i currently following this person?)
+) {
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(profileDocId)
+    .update({
+      followers: isFollowingProfile
+        ? FieldValue.arrayRemove(loggedInUserDocId)
+        : FieldValue.arrayUnion(loggedInUserDocId)
+    });
+}
+
+
 export async function getSuggestedProfiles(userId, following) {
   let query = firebase.firestore().collection('users');
 
