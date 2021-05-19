@@ -1,35 +1,27 @@
 import useUser from '../hooks/use-user'
 import {useContext,useEffect,useState} from 'react'
 import {getPhotos} from '../services/firebase'
+import usePhotos from '../hooks/use-photos'
 import UserContext from '../context/user'
 import Skeleton from 'react-loading-skeleton';
+import LoggedInUserContext from '../context/loggedInContext'
+
 
 export default function Timeline()
 {
-    const {user:{user:{uid}}}=useContext(UserContext)
-    const {user} = useUser(uid);
-    const photos = getPhotos(user.userId,user.following)
-    photos?console.log(photos):console.log("")
+    const {user} = useContext(LoggedInUserContext)
+    const { photos } = usePhotos(user);
     
-    return <div>
-        Timeline
-    </div>
+    return (
+        <div className="container col-span-2">
+          {!photos ? (
+            <Skeleton count={4} width={640} height={500} className="mb-5" />
+          ) : (
+            // photos.map((content) => <Post key={content.docId} content={content} />)
+            photos.map((content) =>(<div>{content.username}</div>))
+          )}
+        </div>
+      );
    
-    //
-    // if(photos.length==0){
-    //     return <Skeleton count={3} height={100}/>
-    // }
-    // else{
-    //     return (
-    //         <div>
-    //              {
-    //                  photos.map(photos =>(
-    //                      <p>{photos.photoId}</p>
-    //                  ))
-    //              }
-    //         </div>
-           
-    // )
-    // }
    
 }

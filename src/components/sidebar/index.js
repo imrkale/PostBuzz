@@ -2,21 +2,20 @@ import useUser from '../../hooks/use-user'
 import {useContext} from 'react'
 import UserContext from '../../context/user'
 import Suggestions from './suggestions'
+import LoggedInUserContext from '../../context/loggedInContext'
 import Skeleton from 'react-loading-skeleton';
 import User from './user'
 
 export default  function SideBar(){
-    const {user}=useContext(UserContext)
-    const activeUser = useUser(user?.user?.uid);
-    console.log(activeUser.username)
-    const Userr= activeUser.user;
-    if(Userr)
+    const {user} = useContext(LoggedInUserContext)
+   
+    if(user)
     {
         return  (
         
             <div className="p-4 ml-auto">
-              <User username={Userr.username} fullName={Userr.fullName} />
-              <Suggestions userId={Userr.userId} following={Userr.following} loggedInUserDocId={Userr.docId} />
+              <User username={user.username} fullName={user.fullName} />
+              <Suggestions userId={user.userId} following={user.following} loggedInUserDocId={user.docId} />
             </div>
           );
     }
